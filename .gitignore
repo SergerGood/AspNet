@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
@@ -6,3 +6,6 @@
 /Out
 /.vs
 /Source/AspNetSample/obj/Debug
+_ReSharper.Caches/
+Source/AspNetMVC/bin/
+Source/AspNetMVC/obj/
