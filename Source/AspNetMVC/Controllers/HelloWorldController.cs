@@ -10,7 +10,6 @@ namespace AspNetMVC.Controllers
     {
         // 
         // GET: /HelloWorld/ 
-
         public string Index()
         {
             return "This is my <b>default</b> action...";
@@ -18,10 +17,9 @@ namespace AspNetMVC.Controllers
 
         // 
         // GET: /HelloWorld/Welcome/ 
-
-        public string Welcome()
+        public string Welcome(string name, int ID = 1)
         {
-            return "This is the Welcome action method...";
+            return HttpUtility.HtmlEncode("Hello " + name + ", ID: " + ID);
         }
     }
 }
