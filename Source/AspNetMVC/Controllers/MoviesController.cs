@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -14,11 +15,17 @@ namespace AspNetMVC.Controllers
         private readonly MovieDBContext db = new MovieDBContext();
 
         // GET: Movies
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.Movies.ToList());
-        }
+            var movies = db.Movies.Select(m => m);
 
+            if (string.IsNullOrEmpty(searchString) == false)
+            {
+                movies = movies.Where(x => x.Title.Contains(searchString));
+            }
+
+            return View(movies);
+        }
 
         // GET: Movies/Details/5
         public ActionResult Details(int? id)
