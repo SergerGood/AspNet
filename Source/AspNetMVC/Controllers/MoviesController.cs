@@ -1,24 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
+
 using AspNetMVC.Models;
+
 
 namespace AspNetMVC.Controllers
 {
     public class MoviesController : Controller
     {
-        private MovieDBContext db = new MovieDBContext();
+        private readonly MovieDBContext db = new MovieDBContext();
 
         // GET: Movies
         public ActionResult Index()
         {
             return View(db.Movies.ToList());
         }
+
 
         // GET: Movies/Details/5
         public ActionResult Details(int? id)
@@ -27,6 +27,7 @@ namespace AspNetMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Movie movie = db.Movies.Find(id);
             if (movie == null)
             {
