@@ -9,6 +9,7 @@ namespace AspNetMVC.Models
         public string Genre { get; set; }
         public int ID { get; set; }
         public decimal Price { get; set; }
+        public string Rating { get; set; }
 
         [Display(Name = "Release Date")]
         [DataType(DataType.Date)]
