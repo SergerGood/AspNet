@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
 
-
 namespace AspNetMVC.Controllers
 {
     public class HelloWorldController : Controller
@@ -12,7 +11,6 @@ namespace AspNetMVC.Controllers
         {
             return View();
         }
-
 
         // 
         // GET: /HelloWorld/Welcome/ 

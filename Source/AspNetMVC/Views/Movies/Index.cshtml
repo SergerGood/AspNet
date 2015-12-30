@@ -1,4 +1,5 @@
 ﻿@using System
+@using AspNetMVC.Models
 @model IEnumerable<AspNetMVC.Models.Movie>
 
 @{
@@ -19,7 +20,7 @@
             <input type="submit" value="Filter"/>
         </p>
     }
-    
+
 </p>
 <table class="table">
     <tr>
@@ -38,7 +39,7 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (Movie item in Model)
     {
         <tr>
             <td>

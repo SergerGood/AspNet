@@ -2,7 +2,6 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 
-
 namespace AspNetMVC
 {
     public class RouteConfig
