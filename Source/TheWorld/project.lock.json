@@ -186,25 +186,6 @@
           "lib/net451/Microsoft.AspNet.Http.Features.dll": {}
         }
       },
-      "Microsoft.AspNet.IISPlatformHandler/1.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.Http": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Http.Extensions": "1.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/net451/Microsoft.AspNet.IISPlatformHandler.dll": {}
-        },
-        "runtime": {
-          "lib/net451/Microsoft.AspNet.IISPlatformHandler.dll": {}
-        }
-      },
       "Microsoft.AspNet.Server.Kestrel/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -728,20 +709,6 @@
         },
         "runtime": {
           "lib/dotnet5.4/Microsoft.AspNet.Http.Features.dll": {}
-        }
-      },
-      "Microsoft.AspNet.IISPlatformHandler/1.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.Http": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Http.Extensions": "1.0.0-rc1-final",
-          "System.Security.Principal.Windows": "4.0.0-beta-23516"
-        },
-        "compile": {
-          "lib/dotnet5.4/Microsoft.AspNet.IISPlatformHandler.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet5.4/Microsoft.AspNet.IISPlatformHandler.dll": {}
         }
       },
       "Microsoft.AspNet.Server.Kestrel/1.0.0-rc1-final": {
@@ -1907,25 +1874,7 @@
           "lib/net451/Microsoft.AspNet.Http.Features.dll": {}
         }
       },
-      "Microsoft.AspNet.IISPlatformHandler/1.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.Http": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Http.Extensions": "1.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/net451/Microsoft.AspNet.IISPlatformHandler.dll": {}
-        },
-        "runtime": {
-          "lib/net451/Microsoft.AspNet.IISPlatformHandler.dll": {}
-        }
-      },
+
       "Microsoft.AspNet.Server.Kestrel/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -2468,25 +2417,6 @@
           "lib/net451/Microsoft.AspNet.Http.Features.dll": {}
         }
       },
-      "Microsoft.AspNet.IISPlatformHandler/1.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.Http": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Http.Extensions": "1.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/net451/Microsoft.AspNet.IISPlatformHandler.dll": {}
-        },
-        "runtime": {
-          "lib/net451/Microsoft.AspNet.IISPlatformHandler.dll": {}
-        }
-      },
       "Microsoft.AspNet.Server.Kestrel/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -3013,20 +2943,6 @@
         },
         "runtime": {
           "lib/dotnet5.4/Microsoft.AspNet.Http.Features.dll": {}
-        }
-      },
-      "Microsoft.AspNet.IISPlatformHandler/1.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.Http": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Http.Extensions": "1.0.0-rc1-final",
-          "System.Security.Principal.Windows": "4.0.0-beta-23516"
-        },
-        "compile": {
-          "lib/dotnet5.4/Microsoft.AspNet.IISPlatformHandler.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet5.4/Microsoft.AspNet.IISPlatformHandler.dll": {}
         }
       },
       "Microsoft.AspNet.Server.Kestrel/1.0.0-rc1-final": {
@@ -4600,20 +4516,6 @@
           "lib/dotnet5.4/Microsoft.AspNet.Http.Features.dll": {}
         }
       },
-      "Microsoft.AspNet.IISPlatformHandler/1.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.Http": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Http.Extensions": "1.0.0-rc1-final",
-          "System.Security.Principal.Windows": "4.0.0-beta-23516"
-        },
-        "compile": {
-          "lib/dotnet5.4/Microsoft.AspNet.IISPlatformHandler.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet5.4/Microsoft.AspNet.IISPlatformHandler.dll": {}
-        }
-      },
       "Microsoft.AspNet.Server.Kestrel/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -6147,19 +6049,7 @@
         "Microsoft.AspNet.Http.Features.nuspec"
       ]
     },
-    "Microsoft.AspNet.IISPlatformHandler/1.0.0-rc1-final": {
-      "type": "package",
-      "sha512": "scDY0KQZnOvQTYDd6InIFhn4QnF5UxLtV7VoQXOlpsaEUQ0c6jDVoHvL4ylUy5zcKJkjRDUy/B7Q8TDk05kl2w==",
-      "files": [
-        "lib/dotnet5.4/Microsoft.AspNet.IISPlatformHandler.dll",
-        "lib/dotnet5.4/Microsoft.AspNet.IISPlatformHandler.xml",
-        "lib/net451/Microsoft.AspNet.IISPlatformHandler.dll",
-        "lib/net451/Microsoft.AspNet.IISPlatformHandler.xml",
-        "Microsoft.AspNet.IISPlatformHandler.1.0.0-rc1-final.nupkg",
-        "Microsoft.AspNet.IISPlatformHandler.1.0.0-rc1-final.nupkg.sha512",
-        "Microsoft.AspNet.IISPlatformHandler.nuspec"
-      ]
-    },
+
     "Microsoft.AspNet.Server.Kestrel/1.0.0-rc1-final": {
       "type": "package",
       "serviceable": true,
@@ -9360,7 +9250,6 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "Microsoft.AspNet.IISPlatformHandler >= 1.0.0-rc1-final",
       "Microsoft.AspNet.Server.Kestrel >= 1.0.0-rc1-final"
     ],
     "DNX,Version=v4.5.1": [],
