@@ -1,6 +1,8 @@
-﻿namespace TheWorld.Controllers.Web
+﻿using Microsoft.AspNet.Mvc;
+
+namespace TheWorld.Controllers.Web
 {
-    public class AppController
+    public class AppController: Controller
     {
         public IActionResult Index()
         {
