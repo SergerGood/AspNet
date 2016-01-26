@@ -61,3 +61,8 @@ input[type=text], input[type=password], textarea {
 .menu li.active {
     font-weight: bold;
 }
+
+.menu li a
+{
+    color: #eee;
+}
