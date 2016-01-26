@@ -8,5 +8,16 @@ namespace TheWorld.Controllers.Web
         {
             return View();
         }
+
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
     }
 }
