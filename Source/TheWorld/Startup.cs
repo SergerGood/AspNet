@@ -1,13 +1,27 @@
 ﻿using System;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.PlatformAbstractions;
 using TheWorld.Services;
 
 namespace TheWorld
 {
     public class Startup
     {
+        public static IConfigurationRoot Configuration;
+
+        public Startup(IApplicationEnvironment appEnv)
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(appEnv.ApplicationBasePath)
+                .AddJsonFile("config.json")
+                .AddEnvironmentVariables();
+
+            Configuration = builder.Build();
+        }
+
         // Entry point for the application.
         public static void Main(string[] args) => WebApplication.Run<Startup>(args);
 

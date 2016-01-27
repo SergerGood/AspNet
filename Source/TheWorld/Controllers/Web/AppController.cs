@@ -31,10 +31,25 @@ namespace TheWorld.Controllers.Web
         [HttpPost]
         public IActionResult Contact(ContactViewModel model)
         {
-            service.SendMail("",
-                "",
-                $"Contact Page From {model.Name} ({model.Email})",
-                model.Message);
+            if (ModelState.IsValid)
+            {
+                var email = Startup.Configuration["AppSettings:SiteEmailAdress"];
+
+                if(string.IsNullOrWhiteSpace(email))
+                {
+                    ModelState.AddModelError("", "Could not send mail, configuration problem");
+                }
+
+                if(service.SendMail(email,
+                    email,
+                    $"Contact Page From {model.Name} ({model.Email})",
+                    model.Message))
+                {
+                    ModelState.Clear();
+
+                    ViewBag.Message = "Mail Sent. Thanks!";
+                }
+            }
 
             return View();
         }
