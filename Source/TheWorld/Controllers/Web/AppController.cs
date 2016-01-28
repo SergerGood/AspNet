@@ -1,21 +1,17 @@
-﻿using Microsoft.AspNet.Mvc;
+﻿using System;
+using Microsoft.AspNet.Mvc;
 using TheWorld.Services;
 using TheWorld.ViewModels;
 
 namespace TheWorld.Controllers.Web
 {
-    public class AppController: Controller
+    public class AppController : Controller
     {
-        private IMailService service;
+        private readonly IMailService service;
 
         public AppController(IMailService service)
         {
             this.service = service;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
         }
 
         public IActionResult About()
@@ -33,17 +29,19 @@ namespace TheWorld.Controllers.Web
         {
             if (ModelState.IsValid)
             {
-                var email = Startup.Configuration["AppSettings:SiteEmailAdress"];
+                string email = Startup.Configuration["AppSettings:SiteEmailAdress"];
 
-                if(string.IsNullOrWhiteSpace(email))
+                if (string.IsNullOrWhiteSpace(email))
                 {
                     ModelState.AddModelError("", "Could not send mail, configuration problem");
                 }
 
-                if(service.SendMail(email,
+                bool sendMail = service.SendMail(email,
                     email,
                     $"Contact Page From {model.Name} ({model.Email})",
-                    model.Message))
+                    model.Message);
+
+                if (sendMail == true)
                 {
                     ModelState.Clear();
 
@@ -51,6 +49,11 @@ namespace TheWorld.Controllers.Web
                 }
             }
 
+            return View();
+        }
+
+        public IActionResult Index()
+        {
             return View();
         }
     }

@@ -14,7 +14,7 @@ namespace TheWorld
 
         public Startup(IApplicationEnvironment appEnv)
         {
-            var builder = new ConfigurationBuilder()
+            IConfigurationBuilder builder = new ConfigurationBuilder()
                 .SetBasePath(appEnv.ApplicationBasePath)
                 .AddJsonFile("config.json")
                 .AddEnvironmentVariables();
@@ -32,7 +32,7 @@ namespace TheWorld
             app.UseMvc(config =>
             {
                 config.MapRoute(
-                    name:"Default", 
+                    name: "Default",
                     template: "{controller}/{action}/{id?}",
                     defaults: new { controller = "App", action = "Index" });
             });

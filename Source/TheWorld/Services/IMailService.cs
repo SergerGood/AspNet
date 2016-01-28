@@ -1,4 +1,6 @@
-﻿namespace TheWorld.Services
+﻿using System;
+
+namespace TheWorld.Services
 {
     public interface IMailService
     {
