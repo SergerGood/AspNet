@@ -1,5 +1,8 @@
 ﻿{
   "AppSettings": {
     "SiteEmailAdress": "me@www.com"
+  },
+  "Data": {
+    "WorlContextConnection": "Server=(localdb)\\MSSQLLocalDB;Database=TheWorldDB;Trusted_Connection=true;MultipleActiveResultSets=true;"
   }
 }

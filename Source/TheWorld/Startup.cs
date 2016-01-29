@@ -30,6 +30,7 @@ namespace TheWorld
         public void Configure(IApplicationBuilder app)
         {
             app.UseStaticFiles();
+
             app.UseMvc(config =>
             {
                 config.MapRoute(
@@ -44,6 +45,7 @@ namespace TheWorld
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<WorldContext>();

@@ -2,16 +2,20 @@
 using Microsoft.AspNet.Mvc;
 using TheWorld.Services;
 using TheWorld.ViewModels;
+using TheWorld.Models;
+using System.Linq;
 
 namespace TheWorld.Controllers.Web
 {
     public class AppController : Controller
     {
+        private readonly WorldContext context;
         private readonly IMailService service;
 
-        public AppController(IMailService service)
+        public AppController(IMailService service, WorldContext context)
         {
             this.service = service;
+            this.context = context;
         }
 
         public IActionResult About()
@@ -54,7 +58,9 @@ namespace TheWorld.Controllers.Web
 
         public IActionResult Index()
         {
-            return View();
+            var trips = context.Trips.OrderBy(x => x.Name).ToList();
+
+            return View(trips);
         }
     }
 }
