@@ -3,6 +3,6 @@
     "SiteEmailAdress": "me@www.com"
   },
   "Data": {
-    "WorlContextConnection": "Server=(localdb)\\MSSQLLocalDB;Database=TheWorldDB;Trusted_Connection=true;MultipleActiveResultSets=true;"
+    "WorlContextConnection": "Server=(localdb)\\MSSQLLocalDB;Database=TheWorldDataBase;Trusted_Connection=true;MultipleActiveResultSets=true;"
   }
 }
