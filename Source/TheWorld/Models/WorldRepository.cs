@@ -17,6 +17,16 @@ namespace TheWorld.Models
             this.logger = logger;
         }
 
+        public void AddTrip(Trip newTrip)
+        {
+            context.Add(newTrip);
+        }
+
+        public bool SaveAll()
+        {
+            return context.SaveChanges() > 0;
+        }
+
         public IEnumerable<Trip> GetAllTrips()
         {
             try
