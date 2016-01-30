@@ -27,7 +27,7 @@ namespace TheWorld
         public static void Main(string[] args) => WebApplication.Run<Startup>(args);
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, WorldContextSeedData seeder)
         {
             app.UseStaticFiles();
 
@@ -38,6 +38,8 @@ namespace TheWorld
                     template: "{controller}/{action}/{id?}",
                     defaults: new { controller = "App", action = "Index" });
             });
+
+            seeder.EnsureSeedData();
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -49,6 +51,8 @@ namespace TheWorld
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<WorldContext>();
+
+            services.AddTransient<WorldContextSeedData>();
 
 #if DEBUG
             services.AddScoped<IMailService, DebugMailService>();
