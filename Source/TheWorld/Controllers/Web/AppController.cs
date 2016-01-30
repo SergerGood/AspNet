@@ -9,13 +9,13 @@ namespace TheWorld.Controllers.Web
 {
     public class AppController : Controller
     {
-        private readonly WorldContext context;
+        private readonly IWorldRepository repository;
         private readonly IMailService service;
 
-        public AppController(IMailService service, WorldContext context)
+        public AppController(IMailService service, IWorldRepository repository)
         {
             this.service = service;
-            this.context = context;
+            this.repository = repository;
         }
 
         public IActionResult About()
@@ -58,7 +58,7 @@ namespace TheWorld.Controllers.Web
 
         public IActionResult Index()
         {
-            var trips = context.Trips.OrderBy(x => x.Name).ToList();
+            var trips = repository.GetAllTrips();
 
             return View(trips);
         }
