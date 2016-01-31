@@ -55,5 +55,12 @@ namespace TheWorld.Models
             }
 
         }
+
+        public Trip GetTripByname(string tripName)
+        {
+            return context.Trips
+                .Include(x => x.Stops)
+                .FirstOrDefault(x => x.Name == tripName );
+        }
     }
 }
