@@ -74,6 +74,7 @@ namespace TheWorld.Models
             }
 
             newStop.Order = orderMax + 1;
+            theTrip.Stops.Add(newStop);
 
             context.Stops.Add(newStop);
         }
