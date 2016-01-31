@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using TheWorld.Models;
+using TheWorld.Services;
 using TheWorld.ViewModels;
 
 namespace TheWorld.Controllers.Api
@@ -13,13 +14,17 @@ namespace TheWorld.Controllers.Api
     [Route("api/trips/{tripName}/stops")]
     public class StopController : Controller
     {
+        private CoordService coordService;
         private ILogger<StopController> logger;
         private IWorldRepository repository;
 
-        public StopController(IWorldRepository repository, ILogger<StopController> logger)
+        public StopController(IWorldRepository repository, 
+            ILogger<StopController> logger,
+            CoordService coordService)
         {
             this.repository = repository;
             this.logger = logger;
+            this.coordService = coordService;
         }
 
         [HttpGet("")]
@@ -51,6 +56,16 @@ namespace TheWorld.Controllers.Api
                 if(ModelState.IsValid)
                 {
                     var newStop = Mapper.Map<Stop>(vm);
+
+                    var coordResult = coordService.Lookup(newStop.Name);
+                    if (coordResult.Success == false)
+                    {
+                        Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                        Json(coordResult.Message);
+                    }
+
+                    newStop.Latitude = coordResult.Latitude;
+                    newStop.Longitude = coordResult.Longitude;
 
                     repository.AddStop(tripName, newStop);
 

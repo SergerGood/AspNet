@@ -1,6 +1,7 @@
 ﻿{
   "AppSettings": {
-    "SiteEmailAdress": "me@www.com"
+    "SiteEmailAdress": "me@www.com",
+    "BingKey": "DONTHARDCODEKEYSINCONFIGURATION"
   },
   "Data": {
     "WorlContextConnection": "Server=(localdb)\\MSSQLLocalDB;Database=TheWorldDataBase;Trusted_Connection=true;MultipleActiveResultSets=true;"
