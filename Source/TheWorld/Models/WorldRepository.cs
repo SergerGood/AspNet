@@ -56,11 +56,26 @@ namespace TheWorld.Models
 
         }
 
-        public Trip GetTripByname(string tripName)
+        public Trip GetTripByName(string tripName)
         {
             return context.Trips
                 .Include(x => x.Stops)
                 .FirstOrDefault(x => x.Name == tripName );
+        }
+
+        public void AddStop(string tripName, Stop newStop)
+        {
+            var theTrip = GetTripByName(tripName);
+
+            int orderMax = 0;
+            if (theTrip.Stops.Any())
+            {
+                orderMax = theTrip.Stops.Max(x => x.Order);
+            }
+
+            newStop.Order = orderMax + 1;
+
+            context.Stops.Add(newStop);
         }
     }
 }

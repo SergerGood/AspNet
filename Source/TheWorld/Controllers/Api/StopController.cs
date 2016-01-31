@@ -27,7 +27,7 @@ namespace TheWorld.Controllers.Api
         {
             try
             {
-                var results = repository.GetTripByname(tripName);
+                var results = repository.GetTripByName(tripName);
                 if(results == null)
                 {
                     return Json(null);
@@ -37,11 +37,40 @@ namespace TheWorld.Controllers.Api
             }
             catch (Exception ex)
             {
-                logger.LogError($"Faile to get stops for trip {tripName}", ex);
+                logger.LogError($"Failed to get stops for trip {tripName}", ex);
                 Response.StatusCode = (int)HttpStatusCode.BadRequest;
 
                 return Json("Error occurred finding trip name");
             }
+        }
+
+        public JsonResult Post(string tripName, [FromBody] StopViewModel vm)
+        {
+            try
+            {
+                if(ModelState.IsValid)
+                {
+                    var newStop = Mapper.Map<Stop>(vm);
+
+                    repository.AddStop(tripName, newStop);
+
+                    if(repository.SaveAll())
+                    {
+                        Response.StatusCode = (int)HttpStatusCode.Created;
+                        return Json(Mapper.Map<StopViewModel>(newStop));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogError("Failed to save new stop", ex);
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+
+                return Json("Failed to save new stop");
+            }
+
+            Response.StatusCode = (int)HttpStatusCode.BadRequest;
+            return Json("validation failed on new stop");
         }
     }
 }
