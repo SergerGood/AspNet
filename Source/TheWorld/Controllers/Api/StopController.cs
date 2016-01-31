@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using TheWorld.Models;
 using TheWorld.Services;
 using TheWorld.ViewModels;
@@ -49,7 +50,7 @@ namespace TheWorld.Controllers.Api
             }
         }
 
-        public JsonResult Post(string tripName, [FromBody] StopViewModel vm)
+        public async Task<JsonResult> Post(string tripName, [FromBody] StopViewModel vm)
         {
             try
             {
@@ -57,7 +58,7 @@ namespace TheWorld.Controllers.Api
                 {
                     var newStop = Mapper.Map<Stop>(vm);
 
-                    var coordResult = coordService.Lookup(newStop.Name);
+                    var coordResult = await coordService.Lookup(newStop.Name);
                     if (coordResult.Success == false)
                     {
                         Response.StatusCode = (int)HttpStatusCode.BadRequest;
