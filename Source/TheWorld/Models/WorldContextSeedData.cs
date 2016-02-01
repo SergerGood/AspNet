@@ -27,10 +27,14 @@ namespace TheWorld.Models
                     Email = "sam@theworld.com"
                 };
 
-                await userManager.CreateAsync(newUser, "11111111");
+                var result = await userManager.CreateAsync(newUser, "P@ssw0rd");
+                if (result.Succeeded == false)
+                {
+                    var errors = result.Errors;
+                }
             }
 
-            if(context.Trips.Any() == false)
+            if (context.Trips.Any() == false)
             {
                 var usTrip = new Trip
                 {
