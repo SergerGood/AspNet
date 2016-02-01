@@ -9,7 +9,14 @@
 
         var vm = this;
 
-        vm.Name = "Shawn";
+        vm.trips = [{
+            name: "US Trip",
+            created: new Date()
+        },
+        {
+            name: "World Trip",
+            created: new Date()
+        }];
     }
 
 })();
