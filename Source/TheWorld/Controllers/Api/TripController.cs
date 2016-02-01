@@ -6,9 +6,11 @@ using System.Collections.Generic;
 using System.Net;
 using TheWorld.Models;
 using TheWorld.ViewModels;
+using Microsoft.AspNet.Authorization;
 
 namespace TheWorld.Controllers.Api
 {
+    [Authorize]
     [Route("api/trips")]
     public class TripController : Controller
     {
