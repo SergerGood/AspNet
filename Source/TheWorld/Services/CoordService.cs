@@ -24,7 +24,7 @@ namespace TheWorld.Services
             };
 
             var encodeName = WebUtility.UrlEncode(location);
-            var bingKey = Startup.Configuration["AppSettings:BingKey"];
+            var bingKey = Startup.Configuration["AppSettings_BingKey"];
 
             var url = $"http://dev.virtualearth.net/REST/v1/Locations?q={encodeName}&key={bingKey}";
 
