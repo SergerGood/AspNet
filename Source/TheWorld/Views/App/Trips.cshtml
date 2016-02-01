@@ -3,11 +3,16 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
+@section Scripts {
+    <script src="~/lib/angular/angular.min.js"></script>
+}
 <h1>The World</h1>
 <p>This will be a fun website soon!</p>
 
-<div class="row">
+<div class="row" ng-app>
+
+    <div>{{ "Two plus two equals: " + (2 + 2) }}</div>
+
     <div class="col-md-6">
         <form>
             <div class="form-group">
