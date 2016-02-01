@@ -1,27 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 
 namespace TheWorld.Models
 {
     public class WorldContextSeedData
     {
         private readonly WorldContext context;
+        private UserManager<WorldUser> userManager;
 
-        public WorldContextSeedData(WorldContext context)
+        public WorldContextSeedData(WorldContext context, UserManager<WorldUser> userManager)
         {
             this.context = context;
+            this.userManager = userManager;
         }
 
-        public void EnsureSeedData()
+        public async Task EnsureSeedDataAsync()
         {
+            if(await userManager.FindByEmailAsync("sam@theworld.com") == null)
+            {
+                var newUser = new WorldUser
+                {
+                    UserName = "Sam",
+                    Email = "sam@theworld.com"
+                };
+
+                await userManager.CreateAsync(newUser, "11111111");
+            }
+
             if(context.Trips.Any() == false)
             {
                 var usTrip = new Trip
                 {
                     Name = "US Trip",
                     Created = DateTime.UtcNow,
-                    UserName = "",
+                    UserName = "Sam",
                     Stops = new List<Stop>
                     {
                         new Stop
@@ -42,7 +57,7 @@ namespace TheWorld.Models
                 {
                     Name = "World Trip",
                     Created = DateTime.UtcNow,
-                    UserName = "",
+                    UserName = "Sam",
                     Stops = new List<Stop>
                     {
                         new Stop
