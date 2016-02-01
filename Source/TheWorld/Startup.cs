@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 using AutoMapper;
 using TheWorld.ViewModels;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace TheWorld
 {
@@ -37,6 +38,8 @@ namespace TheWorld
 
             app.UseStaticFiles();
 
+            app.UseIdentity();
+
             Mapper.Initialize(config =>
             {
                 config.CreateMap<Trip, TripViewModel>().ReverseMap();
@@ -63,6 +66,14 @@ namespace TheWorld
                 {
                     opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                 });
+
+            services.AddIdentity<WorldUser, IdentityRole>(config =>
+            {
+                config.User.RequireUniqueEmail = true;
+                config.Password.RequiredLength = 8;
+                config.Cookies.ApplicationCookie.LoginPath = "/Auth/Login";
+            })
+            .AddEntityFrameworkStores<WorldContext>();
 
             services.AddLogging();
 
