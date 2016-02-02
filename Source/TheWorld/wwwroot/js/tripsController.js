@@ -25,14 +25,22 @@
         .finally(function () {
             vm.isBusy = false;
         });
-        
-        vm.addTrip = function() {
-            vm.trips.push({
-                name: vm.newTrip.name,
-                created: new Date()
-            });
 
-            vm.newTrip = {};
+        vm.errorMessage = "";
+        
+        vm.addTrip = function () {
+            vm.isBusy = true;
+
+            $http.post("/api/trips", vm.newTrip)
+            .then(function (response) {
+                vm.trips.push(response.data);
+                vm.newTrip = {};
+            }, function () {
+                vm.errorMessage = "Failed to save new trip";
+            })
+            .finally(function () {
+                vm.isBusy = false;
+            });;
         }
     }
 
