@@ -65,9 +65,7 @@ namespace TheWorld.Controllers.Web
         [Authorize]
         public IActionResult Trips()
         {
-            var trips = repository.GetAllTrips();
-
-            return View(trips);
+            return View();
         }
     }
 }
