@@ -1,4 +1,5 @@
 ﻿/// <autosync enabled="true" />
+/// <reference path="../gulpfile.js" />
 /// <reference path="../wwwroot/js/app-trips.js" />
 /// <reference path="../wwwroot/js/simpleControls.js" />
 /// <reference path="../wwwroot/js/site.js" />

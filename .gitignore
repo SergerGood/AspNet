@@ -12,3 +12,4 @@ Source/AspNetMVC/obj/
 /Source/AspNetMVC/App_Data/
 /artifacts/bin/TheWorld/Debug
 /.idea
+Source/TheWorld/node_modules/
