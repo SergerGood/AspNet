@@ -13,3 +13,15 @@ Source/AspNetMVC/obj/
 /artifacts/bin/TheWorld/Debug
 /.idea
 Source/TheWorld/node_modules/
+/Source/TheWorld/Properties/PublishProfiles/DesctopDeployment.pubxml.user
+/Source/TheWorld/Properties/PublishProfiles
+/Source/TheWorld/bin/Release/dnx451/TheWorld.xml
+/Source/TheWorld/bin/Release/dnx451/TheWorld.pdb
+/Source/TheWorld/bin/Release/dnx451/TheWorld.dll
+/Source/TheWorld/bin/Release/dnx451
+/Source/TheWorld/bin/Release/app/project.json
+/Source/TheWorld/bin/Release/app/ef.cmd
+/Source/TheWorld/bin/Release/app/ef
+/Source/TheWorld/bin/Release/app
+/Source/TheWorld/bin/Release
+/Source/TheWorld
