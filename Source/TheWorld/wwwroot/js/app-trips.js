@@ -2,7 +2,7 @@
 
     "use strict";
 
-    angular.module("app-trips", ["simpleControls", "ngRoute"])
+    angular.module("app-trips", ["simpleControls", "ngRoute", "ngMessages", "ngAnimate"])
         .config(function ($routeProvider) {
 
             $routeProvider.when("/", {
